@@ -8,5 +8,6 @@ class KategoriRespon(BaseModel):
     id: int
     nama_kategori: str
     keterangan: str | None
+    
     class Config:
         from_attributes = True

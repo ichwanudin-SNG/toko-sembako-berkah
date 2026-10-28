@@ -1,21 +1,29 @@
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, Field, EmailStr
+from typing import Optional
+from datetime import datetime
 
-class UserDaftar(BaseModel):
-    username: str = Field(..., min_length=3, max_length=50)
+class PenggunaBuat(BaseModel):
+    username: str = Field(..., max_length=50)
     email: EmailStr
-    password: str = Field(..., min_length=6)
-    nama_lengkap: str | None = None
-    peran: str = "kasir"
+    kata_sandi: str = Field(..., min_length=6)
+    nama_lengkap: Optional[str] = None
+    peran: Optional[str] = "kasir"
 
-class UserRespon(BaseModel):
+class PenggunaMasuk(BaseModel):
+    username: str
+    kata_sandi: str
+
+class PenggunaRespon(BaseModel):
     id: int
     username: str
     email: str
-    nama_lengkap: str | None
+    nama_lengkap: Optional[str]
     peran: str
+    dibuat_pada: Optional[datetime]
+    
     class Config:
         from_attributes = True
 
 class Token(BaseModel):
-    access_token: str
-    token_type: str
+    akses_token: str
+    jenis_token: str = "bearer"

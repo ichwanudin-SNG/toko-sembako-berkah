@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaksi - Toko Sembako Berkah</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Toko Sembako Berkah</h1>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="produk.html">Produk</a></li>
+                <li><a href="kategori.html">Kategori</a></li>
+                <li><a href="transaksi.html" class="active">Transaksi</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="login.html" class="btn-masuk">Masuk</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-content">
+        <div class="container">
+            <h2>Transaksi Penjualan</h2>
+
+            <div class="transaksi-layout">
+                <div class="transaksi-form">
+                    <h4>Form Penjualan</h4>
+                    <div class="form-group">
+                        <label>Nama Produk</label>
+                        <select class="input-field">
+                            <option>Beras Putih 5kg</option>
+                            <option>Minyak Goreng 2L</option>
+                            <option>Gula Pasir 1kg</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Jumlah</label>
+                        <input type="number" value="1" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label>Total Bayar</label>
+                        <input type="text" value="Rp 55.000" class="input-field" readonly>
+                    </div>
+                    <button class="btn-primary">Simpan Transaksi</button>
+                </div>
+
+                <div class="transaksi-riwayat">
+                    <h4>Riwayat Transaksi</h4>
+                    <table class="tabel">
+                        <thead>
+                            <tr>
+                                <th>Tanggal</th>
+                                <th>Produk</th>
+                                <th>Jumlah</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2025-06-02</td>
+                                <td>Beras Putih 5kg</td>
+                                <td>2</td>
+                                <td>Rp 110.000</td>
+                            </tr>
+                            <tr>
+                                <td>2025-06-02</td>
+                                <td>Minyak Goreng 2L</td>
+                                <td>1</td>
+                                <td>Rp 28.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Toko Sembako Berkah. Sistem Manajemen Toko Sembako.</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

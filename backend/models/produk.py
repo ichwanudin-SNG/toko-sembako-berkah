@@ -13,4 +13,4 @@ class Produk(Base):
     harga_jual = Column(DECIMAL(12,2), nullable=False)
     satuan = Column(String(20), default="pcs")
     dibuat_pada = Column(TIMESTAMP, server_default=func.now())
-    kategori = relationship("Kategori", back_populates="produk")
+    kategori = relationship("Kategori", back_populates="daftar_produk")
