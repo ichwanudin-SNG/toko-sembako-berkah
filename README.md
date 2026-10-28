@@ -116,9 +116,9 @@ Pengembangan selanjutnya: laporan, grafik, hak akses, cetak struk
 Tabel
 Keterangan	Isi
 Nama	Ichwanudin
-NIM	—
-Mata Kuliah	—
-Kampus	—
+NIM	25120300018
+Mata Kuliah	Web Application Development
+Kampus	Cakrawala Universty
 "Toko Sembako Berkah — Membantu Mengelola Usaha dengan Lebih Mudah" 💚
 plaintext
 
