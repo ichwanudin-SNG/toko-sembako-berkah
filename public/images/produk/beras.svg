@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <rect width="200" height="200" rx="16" fill="#fefce8"/>
+  <rect x="40" y="45" width="120" height="130" rx="14" fill="#fef08a" stroke="#ca8a04" stroke-width="4"/>
+  <path d="M40 70 Q100 85 160 70" stroke="#ca8a04" stroke-width="3" fill="none"/>
+  <circle cx="100" cy="110" r="30" fill="#ffffff" stroke="#ca8a04" stroke-width="2"/>
+  <text x="100" y="118" font-family="Arial, sans-serif" font-size="28" text-anchor="middle">🌾</text>
+  <text x="100" y="155" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#854d0e">BERAS PREMIUM</text>
+</svg>

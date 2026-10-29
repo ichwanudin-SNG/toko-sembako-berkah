@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <rect width="200" height="200" rx="16" fill="#eff6ff"/>
+  <rect x="45" y="50" width="110" height="120" rx="10" fill="#bfdbfe" stroke="#2563eb" stroke-width="4"/>
+  <polygon points="100,75 80,115 120,115" fill="#1d4ed8"/>
+  <text x="100" y="145" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1e40af">SEGITIGA BIRU</text>
+</svg>

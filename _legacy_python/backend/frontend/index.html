@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda — Toko Sembako Berkah</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        body {
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        /* Navigasi */
+        nav {
+            background-color: #15803d;
+            padding: 1rem 0;
+            margin-bottom: 0;
+        }
+        .nav-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .menu a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 0.8rem;
+            font-weight: 500;
+        }
+        .menu a:hover, .menu a.active {
+            color: #bbf7d0;
+        }
+        .menu .masuk-btn {
+            background-color: #ffffff;
+            color: #15803d;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+        .menu .masuk-btn:hover {
+            background-color: #dcfce7;
+        }
+        /* Bagian Utama */
+        .hero {
+            background: linear-gradient(to right, #f0fdf4, #dcfce7);
+            padding: 3rem 0;
+        }
+        .hero-wrap {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+        .hero-teks {
+            flex: 1;
+        }
+        .hero-teks h1 {
+            font-size: 2rem;
+            color: #15803d;
+            margin-bottom: 1rem;
+        }
+        .hero-teks p {
+            font-size: 1.05rem;
+            color: #4b5563;
+            margin-bottom: 2rem;
+        }
+        .tombol {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+        }
+        .tombol.hijau {
+            background-color: #15803d;
+            color: white;
+        }
+        .tombol.hijau:hover {
+            background-color: #166534;
+        }
+        .tombol.putih {
+            border: 2px solid #15803d;
+            color: #15803d;
+            background-color: transparent;
+        }
+        .tombol.putih:hover {
+            background-color: #dcfce7;
+        }
+        .hero-gambar {
+            flex: 1;
+            text-align: center;
+        }
+        .hero-gambar img,
+        .hero-gambar svg {
+            max-width: 100%;
+            height: auto;
+        }
+        /* Fitur */
+        .fitur {
+            padding: 3rem 0;
+        }
+        .fitur h2 {
+            text-align: center;
+            color: #15803d;
+            margin-bottom: 2rem;
+        }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #6b7280;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 1rem;
+        }
+        @media (max-width: 768px) {
+            .hero-wrap {
+                flex-direction: column;
+                text-align: center;
+            }
+            .menu a {
+                margin: 0 0.4rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-wrap">
+            <a href="index.html" class="logo">Toko Sembako Berkah</a>
+            <div class="menu">
+                <a href="index.html" class="active">Beranda</a>
+                <a href="produk.html">Produk</a>
+                <a href="kategori.html">Kategori</a>
+                <a href="transaksi.html">Transaksi</a>
+                <a href="profil.html">Profil</a>
+                <a href="login.html" class="masuk-btn">Masuk</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container hero-wrap">
+            <div class="hero-teks">
+                <h1>Manajemen Toko Sembako Modern</h1>
+                <p>Kelola produk, kategori, dan transaksi penjualan dengan lebih cepat, rapi, dan terpercaya.</p>
+                <a href="produk.html" class="tombol hijau">Lihat Produk</a>
+                <a href="transaksi.html" class="tombol putih">Catat Penjualan</a>
+            </div>
+            <div class="hero-gambar">
+                <!-- Gambar Ilustrasi Toko Sembako -->
+                <svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Latar toko -->
+                    <rect x="30" y="80" width="340" height="190" fill="#fef3c7" rx="8"/>
+                    <!-- Atap toko -->
+                    <polygon points="200,30 20,90 380,90" fill="#15803d"/>
+                    <!-- Pintu -->
+                    <rect x="165" y="150" width="70" height="120" fill="#92400e" rx="4"/>
+                    <circle cx="220" cy="210" r="6" fill="#fbbf24"/>
+                    <!-- Jendela kiri -->
+                    <rect x="60" y="130" width="60" height="50" fill="#bfdbfe" rx="4"/>
+                    <line x1="90" y1="130" x2="90" y2="180" stroke="#92400e" stroke-width="2"/>
+                    <line x1="60" y1="155" x2="120" y2="155" stroke="#92400e" stroke-width="2"/>
+                    <!-- Jendela kanan -->
+                    <rect x="280" y="130" width="60" height="50" fill="#bfdbfe" rx="4"/>
+                    <line x1="310" y1="130" x2="310" y2="180" stroke="#92400e" stroke-width="2"/>
+                    <line x1="280" y1="155" x2="340" y2="155" stroke="#92400e" stroke-width="2"/>
+                    <!-- Papan Nama -->
+                    <rect x="100" y="100" width="200" height="35" fill="#15803d" rx="4"/>
+                    <text x="200" y="125" font-family="Arial" font-size="14" fill="white" text-anchor="middle" font-weight="bold">Sembako Berkah</text>
+                    <!-- Produk di depan -->
+                    <rect x="50" y="240" width="35" height="40" fill="#fde047" rx="3"/>
+                    <rect x="95" y="235" width="35" height="45" fill="#fb923c" rx="3"/>
+                    <rect x="140" y="242" width="35" height="38" fill="#f87171" rx="3"/>
+                    <rect x="225" y="242" width="35" height="38" fill="#93c5fd" rx="3"/>
+                    <rect x="270" y="235" width="35" height="45" fill="#d8b4fe" rx="3"/>
+                    <rect x="315" y="240" width="35" height="40" fill="#86efac" rx="3"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <section class="fitur container">
+        <h2>Fitur Utama</h2>
+        <p style="text-align:center; color:#6b7280;">Sistem yang memudahkan pengelolaan toko harian Anda</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Toko Sembako Berkah — Semua Hak Dilindungi</p>
+    </footer>
+
+</body>
+</html>

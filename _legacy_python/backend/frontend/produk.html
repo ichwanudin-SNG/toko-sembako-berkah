@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk — Toko Sembako Berkah</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        body {
+            background-color: #f9fafb;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        /* Navigasi */
+        nav {
+            background-color: #15803d;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+        .nav-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+        .menu {
+            margin-top: 0.5rem;
+        }
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 0.7rem;
+            font-weight: 500;
+        }
+        .menu a:hover, .menu a.active {
+            color: #bbf7d0;
+        }
+        .menu .masuk-btn {
+            background-color: #fff;
+            color: #15803d;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+        /* Konten */
+        h2 {
+            font-size: 1.8rem;
+            color: #15803d;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #bbf7d0;
+        }
+        .toolbar {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .input-cari {
+            flex: 1;
+            min-width: 280px;
+            padding: 0.75rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            outline: none;
+            font-size: 0.95rem;
+        }
+        .input-cari:focus {
+            border-color: #15803d;
+            box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.1);
+        }
+        .btn-tambah {
+            background-color: #15803d;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-tambah:hover {
+            background-color: #166534;
+        }
+        .tabel-bungkus {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        th {
+            background-color: #15803d;
+            color: white;
+            font-weight: 600;
+        }
+        tr:hover {
+            background-color: #f0fdf4;
+        }
+        .btn-ubah {
+            background-color: #fef3c7;
+            color: #92400e;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            margin-right: 0.3rem;
+            cursor: pointer;
+        }
+        .btn-hapus {
+            background-color: #fee2e2;
+            color: #b91c1c;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .pesan {
+            text-align: center;
+            padding: 2.5rem;
+            color: #6b7280;
+        }
+        .pesan.error {
+            color: #dc2626;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #6b7280;
+            margin-top: 3rem;
+            border-top: 1px solid #e5e7eb;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-wrap">
+            <a href="index.html" class="logo">Toko Sembako Berkah</a>
+            <div class="menu">
+                <a href="index.html">Beranda</a>
+                <a href="produk.html" class="active">Produk</a>
+                <a href="kategori.html">Kategori</a>
+                <a href="transaksi.html">Transaksi</a>
+                <a href="profil.html">Profil</a>
+                <a href="login.html" class="masuk-btn" id="linkMasuk">Masuk</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Daftar Produk</h2>
+
+        <div class="toolbar">
+            <input type="text" class="input-cari" id="cariProduk" placeholder="Cari nama produk...">
+            <button class="btn-tambah">+ Tambah Produk</button>
+        </div>
+
+        <div class="tabel-bungkus">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Produk</th>
+                        <th>Kategori</th>
+                        <th>Harga</th>
+                        <th>Stok</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="daftarProduk">
+                    <tr>
+                        <td colspan="6" class="pesan">Memuat data...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Toko Sembako Berkah — Sistem Manajemen Penjualan</p>
+    </footer>
+
+    <script>
+        // Cek status login
+        if (localStorage.getItem("token")) {
+            document.getElementById("linkMasuk").style.display = "none";
+        }
+
+        // Ambil data produk
+        async function muatProduk() {
+            const tbody = document.getElementById("daftarProduk");
+            
+            try {
+                // ⚠️ PASTIKAN ALAMAT INI SAMA PERSIS
+                const res = await fetch("http://127.0.0.1:8000/api/produk/");
+                
+                if (!res.ok) throw new Error("Status: " + res.status);
+                
+                const data = await res.json();
+                
+                if (!data || data.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="6" class="pesan">
+                        Belum ada produk. Buka <b>http://127.0.0.1:8000/docs</b> untuk menambah data pertama.
+                    </td></tr>`;
+                    return;
+                }
+
+                tbody.innerHTML = data.map((p, i) => `
+                    <tr>
+                        <td>${i + 1}</td>
+                        <td><strong>${p.nama}</strong></td>
+                        <td>${p.nama_kategori || "-"}</td>
+                        <td>Rp ${(p.harga || 0).toLocaleString("id-ID")}</td>
+                        <td>${p.stok || 0}</td>
+                        <td>
+                            <button class="btn-ubah">Ubah</button>
+                            <button class="btn-hapus">Hapus</button>
+                        </td>
+                    </tr>
+                `).join("");
+
+            } catch (err) {
+                console.error("Error detail:", err);
+                tbody.innerHTML = `<tr><td colspan="6" class="pesan error">
+                    ⚠️ Tidak bisa terhubung ke server.<br>
+                    Pastikan:<br>
+                    1. Buka: <code>http://127.0.0.1:8000/api/produk/</code> langsung di tab baru<br>
+                    2. Di <code>main.py</code> sudah ada pengaturan CORS<br>
+                    3. Backend jalan di port 8000
+                </td></tr>`;
+            }
+        }
+
+        muatProduk();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <rect width="200" height="200" rx="16" fill="#f0fdf4"/>
+  <rect x="45" y="50" width="110" height="115" rx="10" fill="#bbf7d0" stroke="#15803d" stroke-width="4"/>
+  <rect x="55" y="70" width="90" height="30" rx="6" fill="#ffffff" stroke="#15803d" stroke-width="2"/>
+  <text x="100" y="91" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#166534">ROYCO</text>
+  <text x="100" y="140" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#14532d">KALDU AYAM</text>
+</svg>
