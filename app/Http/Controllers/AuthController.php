@@ -12,7 +12,10 @@ class AuthController extends Controller
     public function showLogin()
     {
         if (Auth::check()) {
-            return redirect()->route('dashboard');
+            $role = Auth::user()->role;
+            return $role === 'pelanggan'
+                ? redirect()->route('produk.index')
+                : redirect()->route('dashboard');
         }
         return view('auth.login');
     }
@@ -29,7 +32,9 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
-            return redirect()->intended(route('dashboard'))
+            $role = Auth::user()->role;
+            $redirectTo = $role === 'pelanggan' ? route('produk.index') : route('dashboard');
+            return redirect()->intended($redirectTo)
                 ->with('success', 'Selamat datang, ' . Auth::user()->name . '!');
         }
 
@@ -41,7 +46,10 @@ class AuthController extends Controller
     public function showRegister()
     {
         if (Auth::check()) {
-            return redirect()->route('dashboard');
+            $role = Auth::user()->role;
+            return $role === 'pelanggan'
+                ? redirect()->route('produk.index')
+                : redirect()->route('dashboard');
         }
         return view('auth.register');
     }
@@ -53,7 +61,6 @@ class AuthController extends Controller
             'name' => ['required', 'string', 'max:100'],
             'email' => ['required', 'string', 'email', 'max:100', 'unique:users,email'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
-            'role' => ['required', 'in:pemilik,kasir'],
         ], [
             'username.unique' => 'Username ini sudah digunakan.',
             'email.unique' => 'Email ini sudah terdaftar.',
@@ -66,13 +73,13 @@ class AuthController extends Controller
             'name' => $validated['name'],
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
-            'role' => $validated['role'],
+            'role' => 'pelanggan', // Registrasi publik selalu pelanggan
         ]);
 
         Auth::login($user);
         $request->session()->regenerate();
 
-        return redirect()->route('dashboard')->with('success', 'Pendaftaran akun berhasil!');
+        return redirect()->route('produk.index')->with('success', 'Pendaftaran berhasil! Selamat belanja di Toko Sembako Berkah 🛒');
     }
 
     public function logout(Request $request)

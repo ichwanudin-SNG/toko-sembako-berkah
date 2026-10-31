@@ -285,7 +285,11 @@
             </a>
             <div class="menu-berkah">
                 @auth
-                    <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">Beranda</a>
+                    @if(!auth()->user()->isPelanggan())
+                        <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">Dashboard</a>
+                    @else
+                        <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">Beranda</a>
+                    @endif
                 @else
                     <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">Beranda</a>
                 @endauth
@@ -294,7 +298,9 @@
                 <a href="{{ route('kategori.index') }}" class="{{ request()->routeIs('kategori.*') ? 'active' : '' }}">Kategori</a>
                 
                 @auth
-                    <a href="{{ route('transaksi.index') }}" class="{{ request()->routeIs('transaksi.*') ? 'active' : '' }}">Transaksi</a>
+                    @if(!auth()->user()->isPelanggan())
+                        <a href="{{ route('transaksi.index') }}" class="{{ request()->routeIs('transaksi.*') ? 'active' : '' }}">Transaksi</a>
+                    @endif
                     
                     @if(auth()->user()->isPemilik())
                         <a href="{{ route('laporan.index') }}" class="{{ request()->routeIs('laporan.*') ? 'active' : '' }}">Laporan</a>
@@ -307,7 +313,6 @@
                         <button type="submit" class="btn-masuk" style="border: none; cursor: pointer;">Keluar ({{ auth()->user()->role }})</button>
                     </form>
                 @else
-                    <a href="{{ route('profile') }}">Profil</a>
                     <a href="{{ route('login') }}" class="btn-masuk">Masuk</a>
                 @endauth
             </div>

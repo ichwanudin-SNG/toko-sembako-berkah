@@ -16,7 +16,12 @@ use App\Http\Controllers\LaporanController;
 
 // Halaman Beranda Utama (Arahkan ke Beranda Produk atau Dashboard)
 Route::get('/', function () {
-    return auth()->check() ? redirect()->route('dashboard') : redirect()->route('produk.index');
+    if (auth()->check()) {
+        return auth()->user()->isPelanggan()
+            ? redirect()->route('produk.index')
+            : redirect()->route('dashboard');
+    }
+    return redirect()->route('produk.index');
 })->name('home');
 
 // Autentikasi Tamu
@@ -37,15 +42,19 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/profil', [AuthController::class, 'profile'])->name('profile');
 
-    // Dashboard Finansial & Operasional
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // Dashboard Finansial & Operasional (Hanya Pemilik & Kasir)
+    Route::get('/dashboard', [DashboardController::class, 'index'])
+        ->middleware('role:pemilik,kasir')
+        ->name('dashboard');
 
     // Transaksi Kasir (Bisa diakses Pemilik & Kasir)
-    Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi.index');
-    Route::get('/transaksi/baru', [TransaksiController::class, 'create'])->name('transaksi.create');
-    Route::post('/transaksi', [TransaksiController::class, 'store'])->name('transaksi.store');
-    Route::get('/transaksi/{transaksi}', [TransaksiController::class, 'show'])->name('transaksi.show');
-    Route::get('/transaksi/{transaksi}/cetak', [TransaksiController::class, 'printReceipt'])->name('transaksi.print');
+    Route::middleware('role:pemilik,kasir')->group(function () {
+        Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi.index');
+        Route::get('/transaksi/baru', [TransaksiController::class, 'create'])->name('transaksi.create');
+        Route::post('/transaksi', [TransaksiController::class, 'store'])->name('transaksi.store');
+        Route::get('/transaksi/{transaksi}', [TransaksiController::class, 'show'])->name('transaksi.show');
+        Route::get('/transaksi/{transaksi}/cetak', [TransaksiController::class, 'printReceipt'])->name('transaksi.print');
+    });
 
     // Khusus Hak Akses Pemilik (Role-Based Access Policy CPMK4)
     Route::middleware('role:pemilik')->group(function () {

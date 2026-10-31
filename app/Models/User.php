@@ -42,6 +42,11 @@ class User extends Authenticatable
         return $this->role === 'kasir';
     }
 
+    public function isPelanggan(): bool
+    {
+        return $this->role === 'pelanggan';
+    }
+
     public function transaksis(): HasMany
     {
         return $this->hasMany(Transaksi::class);

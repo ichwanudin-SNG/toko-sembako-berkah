@@ -23,6 +23,5 @@ Homestead.json
 Homestead.yaml
 Thumbs.db
 
+_legacy_python/**/__pycache__/
 *.pyc
-__pycache__/
-.env

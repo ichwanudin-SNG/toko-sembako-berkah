@@ -33,10 +33,22 @@
             <div style="display: flex; justify-content: space-between; padding: 0.6rem 0;">
                 <span style="color: #6b7280;">Hak Akses</span>
                 <span style="color: #15803d; font-weight: 600;">
-                    {{ auth()->user()->isPemilik() ? 'Akses Penuh (Admin/Pemilik Toko)' : 'Akses Operasional Kasir & Penjualan' }}
+                    @if(auth()->user()->isPemilik())
+                        🔑 Akses Penuh (Admin / Pemilik Toko)
+                    @elseif(auth()->user()->isKasir())
+                        🖥️ Akses Kasir & Transaksi
+                    @else
+                        🛒 Pelanggan — Lihat Katalog & Belanja
+                    @endif
                 </span>
             </div>
         </div>
+
+        @if(auth()->user()->isPelanggan())
+        <div style="margin-top: 1.2rem; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 1rem; font-size: 0.88rem; color: #1e40af;">
+            ℹ️ <strong>Akun Pelanggan:</strong> Anda dapat melihat katalog produk & harga. Untuk transaksi langsung, hubungi kasir di toko kami.
+        </div>
+        @endif
 
         <div style="margin-top: 1.5rem; text-align: center;">
             <form action="{{ route('logout') }}" method="POST">

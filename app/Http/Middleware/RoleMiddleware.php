@@ -22,7 +22,11 @@ class RoleMiddleware
         $user = auth()->user();
 
         if (!in_array($user->role, $roles)) {
-            abort(403, 'Akses Ditolak: Anda tidak memiliki izin untuk mengakses halaman ini.');
+            if ($request->expectsJson()) {
+                return response()->json(['error' => 'Akses Ditolak'], 403);
+            }
+            return redirect()->route('produk.index')
+                ->with('error', 'Akses Ditolak: Anda tidak memiliki izin untuk halaman tersebut.');
         }
 
         return $next($request);

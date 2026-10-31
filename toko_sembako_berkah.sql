@@ -95,7 +95,7 @@ CREATE TABLE `detail_transaksis` (
 
 LOCK TABLES `detail_transaksis` WRITE;
 /*!40000 ALTER TABLE `detail_transaksis` DISABLE KEYS */;
-INSERT INTO `detail_transaksis` VALUES (1,1,1,1,68000.00,68000.00,'2026-10-29 03:58:17','2026-10-29 03:58:17'),(2,1,3,1,36000.00,36000.00,'2026-10-29 03:58:17','2026-10-29 03:58:17'),(3,1,5,1,17500.00,17500.00,'2026-10-29 03:58:17','2026-10-29 03:58:17');
+INSERT INTO `detail_transaksis` VALUES (1,1,1,1,68000.00,68000.00,'2026-10-30 20:01:11','2026-10-30 20:01:11'),(2,1,3,1,36000.00,36000.00,'2026-10-30 20:01:11','2026-10-30 20:01:11'),(3,1,5,1,17500.00,17500.00,'2026-10-30 20:01:11','2026-10-30 20:01:11');
 /*!40000 ALTER TABLE `detail_transaksis` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -211,7 +211,7 @@ CREATE TABLE `kategoris` (
 
 LOCK TABLES `kategoris` WRITE;
 /*!40000 ALTER TABLE `kategoris` DISABLE KEYS */;
-INSERT INTO `kategoris` VALUES (1,'Beras & Biji-bijian','Aneka beras premium, ketan, dan kacang-kacangan','2026-10-29 03:58:17','2026-10-29 03:58:17'),(2,'Minyak Goreng & Margarin','Minyak sawit kemasan dan mentega masak','2026-10-29 03:58:17','2026-10-29 03:58:17'),(3,'Gula & Pemanis','Gula pasir kristal, gula merah, pemanis','2026-10-29 03:58:17','2026-10-29 03:58:17'),(4,'Telur & Tepung','Telur ayam negeri, tepung terigu, beras, tapioka','2026-10-29 03:58:17','2026-10-29 03:58:17'),(5,'Makanan Instan & Kaleng','Mie instan, sarden, kornet','2026-10-29 03:58:17','2026-10-29 03:58:17'),(6,'Minuman, Kopi & Teh','Kopi sachet, teh celup, susu kental manis','2026-10-29 03:58:17','2026-10-29 03:58:17'),(7,'Bumbu Dapur','Penyedap rasa, kecap, saus, garam','2026-10-29 03:58:17','2026-10-29 03:58:17');
+INSERT INTO `kategoris` VALUES (1,'Beras & Biji-bijian','Aneka beras premium, ketan, dan kacang-kacangan','2026-10-30 20:01:10','2026-10-30 20:01:10'),(2,'Minyak Goreng & Margarin','Minyak sawit kemasan dan mentega masak','2026-10-30 20:01:10','2026-10-30 20:01:10'),(3,'Gula & Pemanis','Gula pasir kristal, gula merah, pemanis','2026-10-30 20:01:10','2026-10-30 20:01:10'),(4,'Telur & Tepung','Telur ayam negeri, tepung terigu, beras, tapioka','2026-10-30 20:01:10','2026-10-30 20:01:10'),(5,'Makanan Instan & Kaleng','Mie instan, sarden, kornet','2026-10-30 20:01:10','2026-10-30 20:01:10'),(6,'Minuman, Kopi & Teh','Kopi sachet, teh celup, susu kental manis','2026-10-30 20:01:10','2026-10-30 20:01:10'),(7,'Bumbu Dapur','Penyedap rasa, kecap, saus, garam','2026-10-30 20:01:10','2026-10-30 20:01:10');
 /*!40000 ALTER TABLE `kategoris` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -296,7 +296,7 @@ CREATE TABLE `produks` (
 
 LOCK TABLES `produks` WRITE;
 /*!40000 ALTER TABLE `produks` DISABLE KEYS */;
-INSERT INTO `produks` VALUES (1,'BRG-001','Beras Rojo Lele 5kg',1,45,62000.00,68000.00,'karung','images/produk/beras.svg','2026-10-29 03:58:17','2026-10-29 03:58:17'),(2,'BRG-002','Beras Pandan Wangi 5kg',1,30,68000.00,75000.00,'karung','images/produk/beras.svg','2026-10-29 03:58:17','2026-10-29 03:58:17'),(3,'BRG-003','Minyak Goreng Bimoli 2 Liter',2,50,32000.00,36000.00,'pouch','images/produk/minyak.svg','2026-10-29 03:58:17','2026-10-29 03:58:17'),(4,'BRG-004','Minyak Goreng Tropical 2 Liter',2,35,33000.00,37500.00,'pouch','images/produk/minyak.svg','2026-10-29 03:58:17','2026-10-29 03:58:17'),(5,'BRG-005','Gula Pasir Gulaku Premium 1kg',3,60,15500.00,17500.00,'kg','images/produk/gula.svg','2026-10-29 03:58:17','2026-10-29 03:58:17'),(6,'BRG-006','Telur Ayam Negeri Segar 1kg',4,25,26000.00,29000.00,'kg','images/produk/telur.svg','2026-10-29 03:58:17','2026-10-29 03:58:17'),(7,'BRG-007','Tepung Terigu Segitiga Biru 1kg',4,40,11000.00,13000.00,'kg','images/produk/tepung.svg','2026-10-29 03:58:17','2026-10-29 03:58:17'),(8,'BRG-008','Indomie Goreng Spesial 85g',5,120,2800.00,3500.00,'bungkus','images/produk/mie.svg','2026-10-29 03:58:17','2026-10-29 03:58:17'),(9,'BRG-009','Kopi Kapal Api Spesial 165g',6,40,12500.00,15000.00,'bungkus','images/produk/kopi.svg','2026-10-29 03:58:17','2026-10-29 03:58:17'),(10,'BRG-010','Royco Bumbu Kaldu Ayam 230g',7,4,9000.00,11000.00,'bungkus','images/produk/bumbu.svg','2026-10-29 03:58:17','2026-10-29 03:58:17');
+INSERT INTO `produks` VALUES (1,'BRG-001','Beras Rojo Lele 5kg',1,45,62000.00,68000.00,'karung','images/produk/beras.svg','2026-10-30 20:01:10','2026-10-30 20:01:10'),(2,'BRG-002','Beras Pandan Wangi 5kg',1,30,68000.00,75000.00,'karung','images/produk/beras.svg','2026-10-30 20:01:10','2026-10-30 20:01:10'),(3,'BRG-003','Minyak Goreng Bimoli 2 Liter',2,50,32000.00,36000.00,'pouch','images/produk/minyak.svg','2026-10-30 20:01:10','2026-10-30 20:01:10'),(4,'BRG-004','Minyak Goreng Tropical 2 Liter',2,35,33000.00,37500.00,'pouch','images/produk/minyak.svg','2026-10-30 20:01:10','2026-10-30 20:01:10'),(5,'BRG-005','Gula Pasir Gulaku Premium 1kg',3,60,15500.00,17500.00,'kg','images/produk/gula.svg','2026-10-30 20:01:10','2026-10-30 20:01:10'),(6,'BRG-006','Telur Ayam Negeri Segar 1kg',4,25,26000.00,29000.00,'kg','images/produk/telur.svg','2026-10-30 20:01:10','2026-10-30 20:01:10'),(7,'BRG-007','Tepung Terigu Segitiga Biru 1kg',4,40,11000.00,13000.00,'kg','images/produk/tepung.svg','2026-10-30 20:01:10','2026-10-30 20:01:10'),(8,'BRG-008','Indomie Goreng Spesial 85g',5,120,2800.00,3500.00,'bungkus','images/produk/mie.svg','2026-10-30 20:01:10','2026-10-30 20:01:10'),(9,'BRG-009','Kopi Kapal Api Spesial 165g',6,40,12500.00,15000.00,'bungkus','images/produk/kopi.svg','2026-10-30 20:01:11','2026-10-30 20:01:11'),(10,'BRG-010','Royco Bumbu Kaldu Ayam 230g',7,4,9000.00,11000.00,'bungkus','images/produk/bumbu.svg','2026-10-30 20:01:11','2026-10-30 20:01:11');
 /*!40000 ALTER TABLE `produks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -359,7 +359,7 @@ CREATE TABLE `transaksis` (
 
 LOCK TABLES `transaksis` WRITE;
 /*!40000 ALTER TABLE `transaksis` DISABLE KEYS */;
-INSERT INTO `transaksis` VALUES (1,'TRX-20261029-0001',2,'Ibu Rahma',121500.00,150000.00,28500.00,'2026-10-29 03:58:17','2026-10-29 03:58:17');
+INSERT INTO `transaksis` VALUES (1,'TRX-20261031-0001',2,'Ibu Rahma',121500.00,150000.00,28500.00,'2026-10-30 20:01:11','2026-10-30 20:01:11');
 /*!40000 ALTER TABLE `transaksis` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -377,14 +377,14 @@ CREATE TABLE `users` (
   `email` varchar(100) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
-  `role` enum('pemilik','kasir') NOT NULL DEFAULT 'kasir',
+  `role` enum('pemilik','kasir','pelanggan') NOT NULL DEFAULT 'pelanggan',
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_username_unique` (`username`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -393,7 +393,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'pemilik','Haji Berkah (Pemilik Toko)','pemilik@sembako.com',NULL,'$2y$12$K0RlYxWDvP4oZ6Da5D3DlOvD5c6SkjEHJzeiFFpSaP/g9aQm2xnLm','pemilik',NULL,'2026-10-29 03:58:17','2026-10-29 03:58:17'),(2,'kasir','Siti Kasir','kasir@sembako.com',NULL,'$2y$12$XwD5X9VXTQBIrTVofL.0sOkas3cTsDeCzH71CVZrQrNM346VkZrvi','kasir',NULL,'2026-10-29 03:58:17','2026-10-29 03:58:17');
+INSERT INTO `users` VALUES (1,'pemilik','Haji Berkah (Pemilik Toko)','pemilik@sembako.com',NULL,'$2y$12$Qb2t46mZgOg5W2kqaoH/LuWYdVlhcoMek4By02fJhNaV6zfMCZl46','pemilik',NULL,'2026-10-30 20:01:10','2026-10-30 20:01:10'),(2,'kasir','Siti Kasir','kasir@sembako.com',NULL,'$2y$12$F7mxJmwLCtt7a2UeEheVEe8Gpti.XWBWkow3Ert4B2UoCZWUgA7Iq','kasir',NULL,'2026-10-30 20:01:10','2026-10-30 20:01:10'),(3,'pelanggan','Ibu Rahma (Pelanggan)','pelanggan@gmail.com',NULL,'$2y$12$TQR5qMTuBij95zFvqT2Gv.hFpfQ03/8CYDypdg5RgSIpbl1bpFil.','pelanggan',NULL,'2026-10-30 20:01:10','2026-10-30 20:01:10');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -406,4 +406,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-10-29 17:58:23
+-- Dump completed on 2026-10-31 10:01:24

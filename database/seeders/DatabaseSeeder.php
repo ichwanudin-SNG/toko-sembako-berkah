@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // 1. Seed Users (Pemilik & Kasir)
+        // 1. Seed Users (Pemilik, Kasir & Pelanggan)
         $pemilik = User::create([
             'username' => 'pemilik',
             'name' => 'Haji Berkah (Pemilik Toko)',
@@ -29,6 +29,14 @@ class DatabaseSeeder extends Seeder
             'email' => 'kasir@sembako.com',
             'password' => Hash::make('password123'),
             'role' => 'kasir',
+        ]);
+
+        $pelanggan = User::create([
+            'username' => 'pelanggan',
+            'name' => 'Ibu Rahma (Pelanggan)',
+            'email' => 'pelanggan@gmail.com',
+            'password' => Hash::make('password123'),
+            'role' => 'pelanggan',
         ]);
 
         // 2. Seed Kategori Sembako

@@ -7,7 +7,7 @@
     <div class="tabel-kartu" style="padding: 2.5rem; text-align: center;">
         <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🌾</div>
         <h2 style="color: var(--hijau-utama); margin-bottom: 0.3rem;">Daftar Akun Baru</h2>
-        <p style="color: #6b7280; font-size: 0.9rem; margin-bottom: 1.5rem;">Registrasi Pengguna Sistem Toko Sembako</p>
+        <p style="color: #6b7280; font-size: 0.9rem; margin-bottom: 1.5rem;">Daftar sebagai Pelanggan Toko Sembako Berkah</p>
 
         <form action="{{ route('register.post') }}" method="POST" style="text-align: left;">
             @csrf
@@ -27,13 +27,7 @@
                 <input type="email" name="email" value="{{ old('email') }}" class="input-teks" placeholder="email@contoh.com" required>
             </div>
 
-            <div style="margin-bottom: 1rem;">
-                <label style="display: block; font-weight: 600; margin-bottom: 0.3rem; font-size: 0.9rem;">Peran Akses (Role) *</label>
-                <select name="role" class="input-teks" required>
-                    <option value="kasir" {{ old('role') == 'kasir' ? 'selected' : '' }}>Kasir (Transaksi & Lihat Produk)</option>
-                    <option value="pemilik" {{ old('role') == 'pemilik' ? 'selected' : '' }}>Pemilik (Akses Penuh: CRUD Produk, Kategori, Laporan)</option>
-                </select>
-            </div>
+            {{-- Role hidden: selalu pelanggan untuk registrasi publik --}}
 
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 1.5rem;">
                 <div>
