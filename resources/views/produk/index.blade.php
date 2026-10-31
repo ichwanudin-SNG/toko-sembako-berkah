@@ -89,6 +89,14 @@
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
                                 </form>
+                            @elseif(auth()->user()->isPelanggan())
+                                <form action="{{ route('pesanan.tambah-keranjang', $item->id) }}" method="POST" style="display: inline-flex; align-items: center; gap: 4px;">
+                                    @csrf
+                                    <input type="number" name="jumlah" value="1" min="1" max="{{ $item->stok }}" aria-label="Jumlah {{ $item->nama_produk }}" style="width: 54px; padding: 0.3rem; border: 1px solid #d1d5db; border-radius: 6px;" {{ $item->stok < 1 ? 'disabled' : '' }}>
+                                    <button type="submit" class="btn btn-primary btn-sm" {{ $item->stok < 1 ? 'disabled' : '' }}>
+                                        {{ $item->stok < 1 ? 'Habis' : 'Tambah' }}
+                                    </button>
+                                </form>
                             @else
                                 <span style="font-size: 0.85rem; color: #6b7280;">Hanya Pemilik</span>
                             @endif
@@ -113,4 +121,3 @@
     {{ $produks->links() }}
 </div>
 @endsection
-

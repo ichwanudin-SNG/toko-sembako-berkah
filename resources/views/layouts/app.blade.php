@@ -298,12 +298,24 @@
                 <a href="{{ route('kategori.index') }}" class="{{ request()->routeIs('kategori.*') ? 'active' : '' }}">Kategori</a>
                 
                 @auth
-                    @if(!auth()->user()->isPelanggan())
+                    @if(auth()->user()->isPelanggan())
+                        {{-- Menu Pelanggan --}}
+                        <a href="{{ route('pesanan.keranjang') }}" class="{{ request()->routeIs('pesanan.keranjang') ? 'active' : '' }}"
+                           style="position:relative;">
+                            🛒 Keranjang
+                            @php $jmlKeranjang = count(session('keranjang', [])); @endphp
+                            @if($jmlKeranjang > 0)
+                                <span style="background:#ef4444;color:#fff;border-radius:50%;width:18px;height:18px;font-size:0.7rem;display:inline-flex;align-items:center;justify-content:center;position:absolute;top:-6px;right:-8px;">{{ $jmlKeranjang }}</span>
+                            @endif
+                        </a>
+                        <a href="{{ route('pesanan.riwayat') }}" class="{{ request()->routeIs('pesanan.riwayat','pesanan.show') ? 'active' : '' }}">📜 Pesanan</a>
+                    @else
+                        {{-- Menu Kasir & Pemilik --}}
                         <a href="{{ route('transaksi.index') }}" class="{{ request()->routeIs('transaksi.*') ? 'active' : '' }}">Transaksi</a>
-                    @endif
-                    
-                    @if(auth()->user()->isPemilik())
-                        <a href="{{ route('laporan.index') }}" class="{{ request()->routeIs('laporan.*') ? 'active' : '' }}">Laporan</a>
+                        @if(auth()->user()->isPemilik())
+                            <a href="{{ route('laporan.index') }}" class="{{ request()->routeIs('laporan.*') ? 'active' : '' }}">Laporan</a>
+                            <a href="{{ route('pesanan.kelola') }}" class="{{ request()->routeIs('pesanan.*') ? 'active' : '' }}">Pesanan</a>
+                        @endif
                     @endif
 
                     <a href="{{ route('profile') }}" class="{{ request()->routeIs('profile') ? 'active' : '' }}">Profil</a>

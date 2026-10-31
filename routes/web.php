@@ -7,6 +7,7 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\PesananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,14 +15,15 @@ use App\Http\Controllers\LaporanController;
 |--------------------------------------------------------------------------
 */
 
-// Halaman Beranda Utama (Arahkan ke Beranda Produk atau Dashboard)
+// Halaman Beranda Utama
 Route::get('/', function () {
     if (auth()->check()) {
-        return auth()->user()->isPelanggan()
-            ? redirect()->route('produk.index')
-            : redirect()->route('dashboard');
+        if (!auth()->user()->isPelanggan()) {
+            return redirect()->route('dashboard');
+        }
     }
-    return redirect()->route('produk.index');
+
+    return view('home');
 })->name('home');
 
 // Autentikasi Tamu
@@ -32,7 +34,7 @@ Route::middleware('guest')->group(function () {
     Route::post('/daftar', [AuthController::class, 'register'])->name('register.post');
 });
 
-// Katalog Produk & Kategori Publik (Sesuai Screenshot User)
+// Katalog Produk & Kategori Publik
 Route::get('/produk', [ProdukController::class, 'index'])->name('produk.index');
 Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori.index');
 
@@ -47,7 +49,7 @@ Route::middleware('auth')->group(function () {
         ->middleware('role:pemilik,kasir')
         ->name('dashboard');
 
-    // Transaksi Kasir (Bisa diakses Pemilik & Kasir)
+    // Transaksi Kasir (Pemilik & Kasir)
     Route::middleware('role:pemilik,kasir')->group(function () {
         Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi.index');
         Route::get('/transaksi/baru', [TransaksiController::class, 'create'])->name('transaksi.create');
@@ -56,21 +58,38 @@ Route::middleware('auth')->group(function () {
         Route::get('/transaksi/{transaksi}/cetak', [TransaksiController::class, 'printReceipt'])->name('transaksi.print');
     });
 
-    // Khusus Hak Akses Pemilik (Role-Based Access Policy CPMK4)
+    // Khusus Hak Akses Pemilik
     Route::middleware('role:pemilik')->group(function () {
-        // Kelola Produk (Tambah, Edit, Hapus)
+        // Kelola Produk
         Route::get('/produk/tambah', [ProdukController::class, 'create'])->name('produk.create');
         Route::post('/produk', [ProdukController::class, 'store'])->name('produk.store');
         Route::get('/produk/{produk}/edit', [ProdukController::class, 'edit'])->name('produk.edit');
         Route::put('/produk/{produk}', [ProdukController::class, 'update'])->name('produk.update');
         Route::delete('/produk/{produk}', [ProdukController::class, 'destroy'])->name('produk.destroy');
 
-        // Kelola Kategori (Tambah, Edit, Hapus)
+        // Kelola Kategori
         Route::post('/kategori', [KategoriController::class, 'store'])->name('kategori.store');
         Route::put('/kategori/{kategori}', [KategoriController::class, 'update'])->name('kategori.update');
         Route::delete('/kategori/{kategori}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
 
-        // Laporan Keuangan & Finansial (Laba Rugi)
+        // Laporan Keuangan
         Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
+
+        // Kelola Pesanan dari Pelanggan
+        Route::get('/pesanan/kelola', [PesananController::class, 'kelolaIndex'])->name('pesanan.kelola');
+        Route::patch('/pesanan/{pesanan}/status', [PesananController::class, 'updateStatus'])->name('pesanan.update-status');
+    });
+
+    // Pesanan Pelanggan (keranjang & checkout)
+    Route::middleware('role:pelanggan')->group(function () {
+        Route::get('/keranjang', [PesananController::class, 'keranjang'])->name('pesanan.keranjang');
+        Route::post('/keranjang/{produk}', [PesananController::class, 'tambahKeranjang'])->name('pesanan.tambah-keranjang');
+        Route::patch('/keranjang/{key}', [PesananController::class, 'updateKeranjang'])->name('pesanan.update-keranjang');
+        Route::delete('/keranjang/{key}', [PesananController::class, 'hapusKeranjang'])->name('pesanan.hapus-keranjang');
+        Route::get('/checkout', [PesananController::class, 'checkout'])->name('pesanan.checkout');
+        Route::post('/checkout', [PesananController::class, 'prosesPesanan'])->name('pesanan.proses');
+        Route::get('/pesanan', [PesananController::class, 'riwayat'])->name('pesanan.riwayat');
+        Route::get('/pesanan/{pesanan}', [PesananController::class, 'show'])->name('pesanan.show');
+        Route::patch('/pesanan/{pesanan}/batal', [PesananController::class, 'batal'])->name('pesanan.batal');
     });
 });
