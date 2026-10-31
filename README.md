@@ -61,7 +61,7 @@ Setelah proses *seeding*, sistem telah menyediakan dua akun bawaan untuk penguji
 | :--- | :--- | :--- | :--- | :--- |
 | **Pemilik (Admin)** | `pemilik` | `password123` | `pemilik@sembako.com` | Akses Penuh: CRUD Produk, Kategori, Laporan Finansial, Dashboard |
 | **Kasir** | `kasir` | `password123` | `kasir@sembako.com` | Transaksi Kasir POS, Cetak Struk, Lihat Stok Produk |
-
+| **Pelanggan** | `pelanggan` | `password123` | `pelanggan@sembako.com` | Lihat Produk & Kategori, Riwayat Pembelian Pribadi |
 ---
 
 ## 💻 Panduan Instalasi & Menjalankan di Komputer Lokal
